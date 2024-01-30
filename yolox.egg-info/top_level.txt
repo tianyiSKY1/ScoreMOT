@@ -1,0 +1,15 @@
+YOLOX_outputs
+assets
+build
+datasets
+deploy
+dettrain
+exps
+fast_reid
+logs
+pretrained
+tools
+tutorials
+videos
+vis_train
+yolox

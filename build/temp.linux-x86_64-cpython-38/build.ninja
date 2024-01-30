@@ -1,0 +1,21 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -pthread -B /home/tianyi/anaconda3/envs/byteZTY/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/tianyi/project/ByteTrack/yolox/layers/csrc -I/home/tianyi/anaconda3/envs/byteZTY/lib/python3.8/site-packages/torch/include -I/home/tianyi/anaconda3/envs/byteZTY/lib/python3.8/site-packages/torch/include/torch/csrc/api/include -I/home/tianyi/anaconda3/envs/byteZTY/lib/python3.8/site-packages/torch/include/TH -I/home/tianyi/anaconda3/envs/byteZTY/lib/python3.8/site-packages/torch/include/THC -I/home/tianyi/anaconda3/envs/byteZTY/include/python3.8 -c
+post_cflags = -O3 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+build /home/tianyi/project/ByteTrack/build/temp.linux-x86_64-cpython-38/home/tianyi/project/ByteTrack/yolox/layers/csrc/cocoeval/cocoeval.o: compile /home/tianyi/project/ByteTrack/yolox/layers/csrc/cocoeval/cocoeval.cpp
+build /home/tianyi/project/ByteTrack/build/temp.linux-x86_64-cpython-38/home/tianyi/project/ByteTrack/yolox/layers/csrc/vision.o: compile /home/tianyi/project/ByteTrack/yolox/layers/csrc/vision.cpp
+
+
+
+
+
