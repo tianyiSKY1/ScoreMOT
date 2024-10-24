@@ -143,6 +143,5 @@ YOLOX_outputs
 # Ignore datasets folder
 datasets/
 
-assets/
 deploy/
 tutorials/
